@@ -12,6 +12,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 public class Category {
+    public Long getId() {
+        return id;
+    }
+
     @Id
     private Long id;
 
