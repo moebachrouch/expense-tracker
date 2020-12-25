@@ -1,7 +1,9 @@
 package com.example.codeengine.express.model;
 
+import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.NotFound;
 
 import javax.persistence.*;
 
@@ -13,9 +15,7 @@ public class Category {
     @Id
     private Long id;
 
+    @NotNull
     // Travel, Grocery...
     private String name;
-
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    private User user;
 }
