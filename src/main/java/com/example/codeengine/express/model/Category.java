@@ -1,16 +1,20 @@
 package com.example.codeengine.express.model;
+import java.util.Set;
 
-import com.sun.istack.NotNull;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.NotFound;
-
-import javax.persistence.*;
 
 @Entity
-@Table(name="category")
 @NoArgsConstructor
 @Data
+@Table(name="category")
 public class Category {
     public Long getId() {
         return id;
@@ -19,7 +23,6 @@ public class Category {
     @Id
     private Long id;
 
-    @NotNull
-    // Travel, Grocery...
     private String name;
+
 }

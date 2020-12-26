@@ -1,24 +1,25 @@
 package com.example.codeengine.express.model;
-
+import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.util.Set;
-
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Data
-@Table(name= "user")
+@Table(name="user")
 public class User {
+
     @Id
-    @GeneratedValue
-    private Long id;
-    private String name;
+    private String id;
+
+    private String  name;
+
     private String email;
 
-    @OneToMany // one user can have many categories
-    private Set<Category> category; // removes duplicates
 }

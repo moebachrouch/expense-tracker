@@ -1,28 +1,41 @@
 package com.example.codeengine.express.model;
 
+import java.time.Instant;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.time.Instant;
-
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
+@NoArgsConstructor
 @Data
-@Table(name = "expense")
+@Table(name="expense")
 public class Expense {
+
+    public Long getId() {
+        return id;
+    }
+
     @Id
     private Long id;
 
-    private Instant expensedate; // time object (time stamp)
+    private Instant expensedate;
 
-    private String description; // description of this expense
+    private String description;
+
+    private String location;
 
     @ManyToOne
-    private Category category; // sql join, jpa handles it for us
+    private Category category;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JsonIgnore
+    @ManyToOne
     private User user;
+
 }
